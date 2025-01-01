@@ -14,6 +14,11 @@ function _G.set_terminal_keymaps()
   vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
 end
 
+-- Default to the regular vim "s" behavior
+vim.keymap.set("n", "s", "s", { noremap = true, silent = true })
+vim.keymap.set("x", "s", "s", { noremap = true, silent = true })
+vim.keymap.set("o", "s", "s", { noremap = true, silent = true })
+
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 vim.keymap.set({ "n", "v" }, "<leader>tt", "<cmd>ToggleTermToggleAll<cr>", { desc = "Terminal: Toggle All" })
