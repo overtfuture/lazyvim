@@ -20,24 +20,3 @@ vim.keymap.set("x", "s", "s", { noremap = true, silent = true })
 vim.keymap.set("o", "s", "s", { noremap = true, silent = true })
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-vim.keymap.set({ "n", "v" }, "<leader>tt", "<cmd>ToggleTermToggleAll<cr>", { desc = "Terminal: Toggle All" })
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>th",
-  "<cmd>ToggleTerm direction=horizontal<cr>",
-  { desc = "Terminal: Toggle Horizontal" }
-)
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>tgs",
-  '<cmd>2TermExec udirection=float cmd="git status"<cr>',
-  { desc = "Terminal: Run `git status`" }
-)
-
-vim.keymap.set(
-  { "n", "v" },
-  "<leader>tgp",
-  '<cmd>2TermExec udirection=float cmd="git add .; git commit; git push"<cr>',
-  { desc = "Terminal: Run `ga .; gc; gp`" }
-)

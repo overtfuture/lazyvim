@@ -9,3 +9,13 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.api.nvim_command("set norelativenumber")
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*", -- Apply to all filetypes
+  callback = function()
+    if vim.api.nvim_win_get_config(0).relative ~= "" then
+      -- Map <Esc> to close the floating window
+      vim.keymap.set("n", "<Esc>", "<cmd>close<CR>", { buffer = true, silent = true })
+    end
+  end,
+})
