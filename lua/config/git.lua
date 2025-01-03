@@ -20,5 +20,5 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>GitTerm<CR>", { noremap = true, 
 
 local wk = require("which-key")
 wk.add({
-  t = { ":GitTerm<CR>", "Toggle Git Terminal" },
-}, { prefix = "<leader>" })
+  { "<leader>t", "<cmd>GitTerm<cr>", desc = "Open lazygit Terminal", mode = "n" },
+})
