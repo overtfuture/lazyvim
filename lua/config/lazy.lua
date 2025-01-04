@@ -19,7 +19,11 @@ require("lazy").setup({
     -- have outdated releases, which may break your Neovim install.
     version = "*", -- always use the latest git commit
   },
-  install = { colorscheme = { "dracula" } },
+  install = {
+    colorscheme = {
+      "dracula",
+    },
+  },
   checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
