@@ -5,8 +5,8 @@
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = { "*" },
   callback = function()
-    vim.api.nvim_command("set nonumber")
-    vim.api.nvim_command("set norelativenumber")
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
   end,
 })
 
