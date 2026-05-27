@@ -1,5 +1,5 @@
 local git_terminal
-local claude_terminal
+local codex_terminal
 
 return {
   {
@@ -9,7 +9,7 @@ return {
       { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal", mode = { "n", "t" } },
       { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal: Toggle" },
       { "<leader>tg", "<cmd>LazyGit<cr>", desc = "Terminal: LazyGit" },
-      { "<leader>tc", "<cmd>ClaudeTerm<cr>", desc = "Terminal: Claude" },
+      { "<leader>tc", "<cmd>CodexTerm<cr>", desc = "Terminal: Codex" },
       {
         "<leader>t?",
         function()
@@ -31,11 +31,11 @@ return {
           })
         git_terminal:toggle()
       end, { desc = "Toggle floating lazygit terminal" })
-      vim.api.nvim_create_user_command("ClaudeTerm", function()
+      vim.api.nvim_create_user_command("CodexTerm", function()
         local Terminal = require("toggleterm.terminal").Terminal
-        claude_terminal = claude_terminal
+        codex_terminal = codex_terminal
           or Terminal:new({
-            cmd = "claude",
+            cmd = "codex",
             direction = "float",
             close_on_exit = true,
             hidden = true,
@@ -45,8 +45,8 @@ return {
               height = math.floor(vim.o.lines * 0.9),
             },
           })
-        claude_terminal:toggle()
-      end, { desc = "Toggle floating Claude terminal" })
+        codex_terminal:toggle()
+      end, { desc = "Toggle floating Codex terminal" })
     end,
     opts = {
       size = 12,

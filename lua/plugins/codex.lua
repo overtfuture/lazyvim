@@ -2,7 +2,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     keys = {
-      { "<leader>ac", "<cmd>ClaudeTerm<cr>", desc = "AI: Toggle Claude", mode = { "n", "t" } },
+      { "<leader>ac", "<cmd>CodexTerm<cr>", desc = "AI: Toggle Codex", mode = { "n", "t" } },
       {
         "<leader>a?",
         function()
