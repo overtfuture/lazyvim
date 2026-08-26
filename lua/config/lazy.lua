@@ -6,6 +6,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- Add Homebrew paths to PATH for Neovim (macOS and Linux)
+if vim.fn.has("macunix") == 1 or vim.fn.has("linux") == 1 then
+  vim.env.PATH = table.concat({
+    "/opt/homebrew/bin",
+    "/usr/local/bin",
+    "/home/linuxbrew/.linuxbrew/bin",
+  }, ":") .. ":" .. (vim.env.PATH or "")
+end
+
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
