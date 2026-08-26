@@ -7,7 +7,7 @@ Personal LazyVim config with a Go-first workflow.
 - Dracula colorscheme
 - Go development defaults (`gopls`, `goimports`, `gofmt`, `golangci-lint`, `delve`)
 - Debugging with `nvim-dap`, `nvim-dap-ui`, and `nvim-dap-go`
-- Floating `lazygit` and Codex terminals via `<leader>t`
+- Floating `lazygit` and AI provider terminals via `<leader>t`
 - Fuzzy finding with `fzf-lua`
 - GitHub workflows with `octo.nvim`
 - Discoverable command groups with `which-key`
@@ -19,8 +19,8 @@ Personal LazyVim config with a Go-first workflow.
 - `<C-t>`: Toggle terminal
 - `<leader>tt`: Toggle terminal
 - `<leader>tg`: Toggle floating `lazygit`
-- `<leader>tc`: Toggle floating Codex terminal
-- `<leader>ac`: Toggle floating Codex terminal from the AI menu
+- `<leader>tc`: Select and launch AI provider (opencode, codex, or pi)
+- `<leader>ac`: Select and launch AI provider from the AI menu
 
 ### Debugging
 
@@ -77,6 +77,14 @@ Personal LazyVim config with a Go-first workflow.
 - `<leader>cgi`: Go to implementation
 - `<leader>cgr`: Find references
 - `<leader>cgt`: Go to type definition
+
+### Mason and Noice
+
+- `<leader>cM`: Open Mason registry
+- `<leader>n?`: Show Noice keymaps
+- `<leader>nd`: Dismiss messages
+- `<leader>nh`: Message history
+- `<leader>nl`: Last message
 
 ### Git and GitHub
 

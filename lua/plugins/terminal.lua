@@ -9,7 +9,7 @@ return {
       { "<C-t>", "<cmd>ToggleTerm<cr>", desc = "Toggle terminal", mode = { "n", "t" } },
       { "<leader>tt", "<cmd>ToggleTerm<cr>", desc = "Terminal: Toggle" },
       { "<leader>tg", "<cmd>LazyGit<cr>", desc = "Terminal: LazyGit" },
-      { "<leader>tc", "<cmd>CodexTerm<cr>", desc = "Terminal: Codex" },
+      { "<leader>tc", "<cmd>CodexTerm<cr>", desc = "Terminal: AI Provider" },
       {
         "<leader>t?",
         function()
@@ -32,10 +32,17 @@ return {
         git_terminal:toggle()
       end, { desc = "Toggle floating lazygit terminal" })
       vim.api.nvim_create_user_command("CodexTerm", function()
-        local Terminal = require("toggleterm.terminal").Terminal
-        codex_terminal = codex_terminal
-          or Terminal:new({
-            cmd = "codex",
+        local providers = {"opencode", "codex", "pi"}
+        local choice = vim.ui.select(providers, {
+          prompt = "Select AI provider:",
+          format_item = function(item)
+            return item
+          end,
+        }, function(chosen)
+          if not chosen then return end
+          local Terminal = require("toggleterm.terminal").Terminal
+          local term = Terminal:new({
+            cmd = chosen,
             direction = "float",
             close_on_exit = true,
             hidden = true,
@@ -45,8 +52,9 @@ return {
               height = math.floor(vim.o.lines * 0.9),
             },
           })
-        codex_terminal:toggle()
-      end, { desc = "Toggle floating Codex terminal" })
+          term:toggle()
+        end)
+      end, { desc = "Toggle floating AI terminal" })
     end,
     opts = {
       size = 12,
